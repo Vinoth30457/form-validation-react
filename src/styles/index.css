@@ -19,6 +19,7 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -48,6 +49,11 @@ body {
 
 .wrapper .form {
   width: 100%;
+
+}
+
+form {
+  position: relative;
 }
 
 .wrapper .form .inputfield {
@@ -157,16 +163,11 @@ body {
   display: none;
 }
 
-.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark {
+.wrapper .form .inputfield .check input[type="checkbox"]:checked~.checkmark {
   background: #282881;
 }
 
-.wrapper
-  .form
-  .inputfield
-  .check
-  input[type="checkbox"]:checked
-  ~ .checkmark:before {
+.wrapper .form .inputfield .check input[type="checkbox"]:checked~.checkmark:before {
   display: block;
 }
 
@@ -191,6 +192,43 @@ body {
   margin-bottom: 0;
 }
 
+.pop-up {
+  width: 18rem;
+  height: 10rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  flex-direction: column;
+  gap: 2rem;
+  top: 50%;
+  right: 18%;
+  background-color: #e73c7e;
+  color: #fff;
+  /* box-shadow: 0px 0px 15px rgba(0, 0, 0); */
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  z-index: 10;
+  display: none
+}
+
+.pop-up button {
+  background-color: #fff;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  color: black;
+  font-weight: 600;
+}
+
+.pop-up button:hover {
+  cursor: pointer;
+}
+
+.pop-up-display {
+  display: flex;
+}
+
 @media (max-width: 420px) {
   .wrapper .form .inputfield {
     flex-direction: column;
@@ -210,6 +248,7 @@ body {
     flex-direction: row;
     align-items: flex-start;
   }
+
   #hobbies {
     display: inline-block;
     width: 30%;
@@ -252,6 +291,7 @@ body {
 #name {
   text-transform: capitalize;
 }
+
 #file-size {
   color: #fe1e50;
 }

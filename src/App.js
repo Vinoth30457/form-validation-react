@@ -21,6 +21,7 @@ const App = () => {
   });
   const [check, setCheck] = useState(false);
   const [error, setError] = useState(false);
+  const [popUp, setPopUp] = useState(false);
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
@@ -28,9 +29,11 @@ const App = () => {
     if (input.password === input.confirm_password) {
       setCheck(true);
       setError(false);
+      setPopUp(true);
     } else {
       setError(true);
       setCheck(false);
+      setPopUp(false);
     }
   };
   const handleSubmit = (e) => {
@@ -58,8 +61,9 @@ const App = () => {
   };
 
   const handleReset = () => {
-    setInput("");
+    setInput({});
     setCheck(false);
+    setPopUp(false);
   };
   return (
     <div className="wrapper">
@@ -374,6 +378,12 @@ const App = () => {
               Reset
             </button>
           </div>
+        </div>
+        <div className={popUp === true ? "pop-up pop-up-display " : "pop-up "}>
+          <h2>Registration Success</h2>
+          <button type="reset" onClick={handleReset}>
+            ok
+          </button>
         </div>
       </form>
     </div>
